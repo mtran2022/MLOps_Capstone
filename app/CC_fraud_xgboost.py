@@ -1,11 +1,15 @@
-import uvicorn
+# import uvicorn
 import pandas as pd
+import re
 from xgboost import XGBClassifier
 import xgboost as xgb
+
 from fastapi import FastAPI, HTTPException, status, Request, Form
 from pydantic import BaseModel
 import json
 from pandas.api.types import CategoricalDtype
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import PlainTextResponse
 
 import logging
 from logging.config import dictConfig
@@ -42,11 +46,18 @@ class Transaction(BaseModel):
 @app.on_event("startup")
 def load_clf():
   logger.info("server startup")
+
+  global cat_var_trans_dict, XGB_Classifier, top100_retailers_2015
+
+  XGB_Classifier= XGBClassifier()#enable_categorical=True,use_label_encoder=False)
+  XGB_Classifier.load_model('app/XGB_model.json')
+
   with open('app/cat_var_trans_dict.json', 'r') as f:
-    global cat_var_trans_dict, XGB_Classifier
     cat_var_trans_dict =  json.load(f)
-    XGB_Classifier= XGBClassifier()#enable_categorical=True,use_label_encoder=False)
-    XGB_Classifier.load_model('app/XGB_model.json')
+
+  with open('app/top100_retailers_2015.csv', 'r') as f:
+    top100_retailers_2015 = pd.read_csv('top100_retailers_2015.csv' ,skipinitialspace=True)
+    top100_retailers_2015_ls = [col.lower() for col in top100_retailers_2015.columns]
 
 @app.get("/")
 async def root():
@@ -64,6 +75,7 @@ async def predict(request: Transaction):
   
 def process_input(input):
   logger.info("process input data")
+  #caculate transamt_to_avail
   if input.transactionAmount >0 and input.availableMoney >0:
     transamt_to_avail=input.transactionAmount/input.availableMoney
   elif input.transactionAmount==0:
@@ -71,19 +83,24 @@ def process_input(input):
   elif input.availableMoney <0:
     transamt_to_avail=(abs(input.availableMoney) + input.transactionAmount)/100
 
+  #transform merchant name to compare to top100_retailers_2015
+  merchantName_transf= input.merchantName.replace('.com','')
+  if re.match(r'.+#',merchantName_transf):
+    merchantName_transf = merchantName_transf[:re.match(r'.+#',merchantName_transf).end()-1].strip().lower()
+
   expirationDateKeyInMatch=input.expirationDateKeyInMatch
   merchantCountryCode=input.merchantCountryCode
   merchantCategoryCode=input.merchantCategoryCode
   posEntryMode=input.posEntryMode
   posConditionCode=input.posConditionCode
   cardPresent=input.cardPresent
-  is_near_holiday=0
   addr_chg_date_to_trans_date_days=(pd.to_datetime(input.transactionDateTime) \
                                    - pd.to_datetime(input.dateOfLastAddressChange)).days
-
+  is_top_merchant= merchantName_transf in top100_retailers_2015
+ 
   columns = ['expirationDateKeyInMatch','merchantCountryCode','merchantCategoryCode'
               ,'posEntryMode','posConditionCode'
-              ,'cardPresent','transamt_to_avail','addr_chg_date_to_trans_date_days','is_near_holiday']
+              ,'cardPresent','transamt_to_avail','addr_chg_date_to_trans_date_days','is_top_merchant']
   input_df = pd.DataFrame([[expirationDateKeyInMatch
                       ,merchantCountryCode
                       ,merchantCategoryCode
@@ -92,10 +109,10 @@ def process_input(input):
                       ,cardPresent
                       ,transamt_to_avail                     
                       ,addr_chg_date_to_trans_date_days
-                      ,is_near_holiday]] ,columns=columns)
+                      ,is_top_merchant]] ,columns=columns)
 
   for col in ['expirationDateKeyInMatch','merchantCountryCode','merchantCategoryCode'
-              ,'posEntryMode','posConditionCode','cardPresent','is_near_holiday']:
+              ,'posEntryMode','posConditionCode','cardPresent','is_top_merchant']:
     sorted_unique_cat_values = cat_var_trans_dict.get(col)          
     cat_type = CategoricalDtype(categories=sorted_unique_cat_values, ordered=False)
     input_df[col]=input_df[col].astype(cat_type)
@@ -110,6 +127,14 @@ def process_input(input):
 def predict_fraud(model_input_df):
   logger.info("make fraud prediction")
   return XGB_Classifier.predict(model_input_df)
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    return PlainTextResponse(str(exc), status_code=400)
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request, exc):
+    return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
 
 
 # command to run uvicorn
