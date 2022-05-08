@@ -56,7 +56,7 @@ def load_clf():
     cat_var_trans_dict =  json.load(f)
 
   with open('app/top100_retailers_2015.csv', 'r') as f:
-    top100_retailers_2015 = pd.read_csv('top100_retailers_2015.csv' ,skipinitialspace=True)
+    top100_retailers_2015 = pd.read_csv(f ,skipinitialspace=True)
     top100_retailers_2015_ls = [col.lower() for col in top100_retailers_2015.columns]
 
 @app.get("/")
@@ -141,7 +141,7 @@ async def http_exception_handler(request, exc):
 # uvicorn CC_fraud_model:app --port 8000
 
 # command to provide input - IsFraud=1
-# curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 1000.0 ,"availableMoney":71.86 ,"transactionDateTime":"2016-01-26 18:51:45" ,"transactionAmount":237.64 ,"merchantName":"cheapfast.com" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"09" ,"posConditionCode":"01" ,"merchantCategoryCode":"online_retail" ,"currentExpDate":"2026-12-31" ,"accountOpenDate":"2015-11-11" ,"dateOfLastAddressChange":"2015-07-19" ,"cardCVV":"157" ,"enteredCVV":"157" ,"cardLast4Digits":"8924" ,"transactionType":"PURCHASE" ,"currentBalance":928.14 ,"cardPresent":0 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
+# curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 2500.0 ,"availableMoney":1529.96 ,"transactionDateTime":"2016-01-16 16:01:08" ,"transactionAmount":168.22 ,"merchantName":"Fresh eCards" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"09" ,"posConditionCode":"01" ,"merchantCategoryCode":"online_gifts" ,"currentExpDate":"2027-09-30" ,"accountOpenDate":"2010-01-13" ,"dateOfLastAddressChange":"2010-01-13" ,"cardCVV":"161" ,"enteredCVV":"161" ,"cardLast4Digits":"3791" ,"transactionType":"PURCHASE" ,"currentBalance":970.04 ,"cardPresent":0 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
 # curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 2500.0 ,"availableMoney":171.46 ,"transactionDateTime":"2016-02-12 00:38:11" ,"transactionAmount":238.66 ,"merchantName":"Lyft" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"09" ,"posConditionCode":"01" ,"merchantCategoryCode":"rideshare" ,"currentExpDate":"2026-05-31" ,"accountOpenDate":"2013-02-07" ,"dateOfLastAddressChange":"2013-02-07" ,"cardCVV":"153" ,"enteredCVV":"153" ,"cardLast4Digits":"2737" ,"transactionType":"PURCHASE" ,"currentBalance":2328.54 ,"cardPresent":0 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
 
 # command to provide input - IsFraud=0
