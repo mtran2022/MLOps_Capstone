@@ -5,8 +5,8 @@ Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python
 
 #### Initial MVP
 ```
-Initial MVP result with initial training+validation dataset of ~500K records, using 6 original features.
-Best F1-score was 0.07.
+Initial MVP result with initial training dataset of ~500K records, using 6 original features.
+Average validation F1-score was 0.065.
 ```
 #### Data and Model Iteration
 ```
@@ -25,7 +25,7 @@ param_grid={
     }
 The set of hyperparameters with the best result was:
 {'subsample': 0.5, 'scale_pos_weight': 20, 'n_estimators': 800, 'min_child_weight': 100, 'max_depth': 6, 'learning_rate': 0.01, 'gamma': 0.1}
-F1-score was 0.0833.
+Average validation F1-score was 0.0833.
 ```
 #### Model Retraining
 ```
@@ -35,5 +35,7 @@ Retraining the model with additional data improved the F1-score.
 | ---------------- | ------------ | --------------------------- | ------------- |
 | 100K             | 50K          | 0.0833                      | 0.1025        |
 | 200K             | 100K         | 0.0887                      | 0.0864        |
-| 300K             | 150K         |           |          |
+| 300K             | 150K         | 0.0922                      | 0.0914        |
 ```
+The model evaluation process is illustrated below.
+![image](https://user-images.githubusercontent.com/102324956/168297824-2a035a69-2919-475c-be12-d657dbff14cd.png)
