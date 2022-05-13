@@ -36,6 +36,7 @@ Retraining the model with additional data improved the F1-score.
 | 100K             | 50K          | 0.0833                      | 0.1025        |
 | 200K             | 100K         | 0.0887                      | 0.0864        |
 | 300K             | 150K         | 0.0922                      | 0.0914        |
+| 400K             | 200K         | 0.0867                      | 0.0922        |
 ```
 The model evaluation process is illustrated below.
 ![image](https://user-images.githubusercontent.com/102324956/168297824-2a035a69-2919-475c-be12-d657dbff14cd.png)
