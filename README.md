@@ -13,7 +13,7 @@ Best F1-score was 0.07.
 Data iterations included feature engineering resulting in 3 additional features added to the dataset, for a total of 9 features.
 Initial training with 9 features and 100K records was used to search for optimal hyperparameters.
 
-Using 50 randomly selected sets of hyperparameters from below grid, each set was trained over 10 datasets (each dataset consisting of 20K records).
+Using 50 randomly selected sets of hyperparameters from below grid, each set was trained over 10 datasets (each with 20K records).
 param_grid={
     'scale_pos_weight':range(10,100,10)
     ,'n_estimators': range(500,1501,100)
@@ -25,16 +25,15 @@ param_grid={
     }
 The set of hyperparameters with the best result was:
 {'subsample': 0.5, 'scale_pos_weight': 20, 'n_estimators': 800, 'min_child_weight': 100, 'max_depth': 6, 'learning_rate': 0.01, 'gamma': 0.1}
-
-Best F1-score was 0.083274.
+F1-score was 0.0833.
 ```
 #### Model Retraining
 ```
 Retraining the model with additional data improved the F1-score.
 
-| Training Records | K-Folds | Best F1-score |
-| ---------------- | ------- | ------------- |
-| 67K              | 5       |
-| Content Cell  | Content Cell  |
+| Training Records | Average Validation F1-score | Test F1-score |
+| ---------------- | --------------------------- | ------------- |
+| 100K             | 0.0833                      | 0.1025        |
+| 200K             |                       |           |
 
 ```
