@@ -26,7 +26,7 @@ param_grid={
 The set of hyperparameters with the best result was:
 {'subsample': 0.5, 'scale_pos_weight': 20, 'n_estimators': 800, 'min_child_weight': 100, 'max_depth': 6, 'learning_rate': 0.01, 'gamma': 0.1}
 
-Best F1-score was 0.085029.
+Best F1-score was 0.083274.
 ```
 #### Model Retraining
 ```
