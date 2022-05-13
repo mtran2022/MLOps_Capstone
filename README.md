@@ -31,9 +31,9 @@ F1-score was 0.0833.
 ```
 Retraining the model with additional data improved the F1-score.
 
-| Training Records | Average Validation F1-score | Test F1-score |
-| ---------------- | --------------------------- | ------------- |
-| 100K             | 0.0833                      | 0.1025        |
-| 200K             |                       |           |
-
+| Training Records | Test Records | Average Validation F1-score | Test F1-score |
+| ---------------- | ------------ | --------------------------- | ------------- |
+| 100K             | 50K          | 0.0833                      | 0.1025        |
+| 200K             | 100K         | 0.0887                      | 0.0864        |
+| 300K             | 150K         |           |          |
 ```
