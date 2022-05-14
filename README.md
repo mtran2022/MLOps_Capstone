@@ -32,7 +32,7 @@ Average validation F1-score was 0.0833.
 Retraining the model with additional data generally improved the Average Validation F1-score.
 Comparison between the Average Validation F1-score and Test F1-score shows the model generalizes well to unseen data.
 
-Model performance declines with 400K training records.
+Model performance begins to decline with 400K training records.
 This may signal a change in the data-generating process that requires development of a new model.
 
 | Training Records | Test Records | Average Validation F1-score | Test F1-score |
@@ -41,6 +41,7 @@ This may signal a change in the data-generating process that requires developmen
 | 200K             | 100K         | 0.0887                      | 0.0864        |
 | 300K             | 150K         | 0.0922                      | 0.0914        |
 | 400K             | 200K         | 0.0867                      | 0.0922        |
+| 493K             | 243K         | 0.0851                      | 0.0904        |
 
 ```
 The model evaluation process is illustrated below.
