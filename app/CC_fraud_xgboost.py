@@ -1,4 +1,3 @@
-# import uvicorn
 import pandas as pd
 import re
 from xgboost import XGBClassifier
