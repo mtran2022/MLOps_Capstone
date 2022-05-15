@@ -1,6 +1,6 @@
 This application is designed to predict whether a credit card transaction is fraudulent.
 
-Dataset: Credit Card Fraud https://github.com/CapitalOneRecruiting/DS <br>
+Dataset: CapOne https://github.com/CapitalOneRecruiting/DS <br>
 Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
 
 #### Initial MVP
