@@ -51,6 +51,7 @@ This may signal a change in the data-generating process that requires developmen
 The model evaluation process is illustrated below.
 ![image](https://user-images.githubusercontent.com/102324956/16829782 - 4-2a035a69-2919-475c-be12-d657dbff14cd.png)
 
+
 2. Model: Deep Feed-Forward Neural Network
 
 ```
