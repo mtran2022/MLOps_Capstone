@@ -1,4 +1,4 @@
-<font weight=bold> Project Multi-Mod Credit Fraud Detection </font>
+## Project Multi-Mod Credit Fraud Detection
 
 ![image](https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png)
 
