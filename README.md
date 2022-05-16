@@ -1,6 +1,7 @@
 ## Project Multi-Mod Credit Fraud Detection
 
 ![image](https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png)
+<img src="https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png" width="100" height="100">
 
 This application is designed to predict whether a credit card transaction is fraudulent.
 
