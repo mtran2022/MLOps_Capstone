@@ -1,20 +1,16 @@
-![image](https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png)
+Project Multi-Mod 
 
-Project Cr
+![image](https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png)
 
 This application is designed to predict whether a credit card transaction is fraudulent.
 
 Dataset: CapOne https://github.com/CapitalOneRecruiting/DS <br>
 
+1. Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
 #### Initial MVP
 ```
-Initial MVP result with initial training dataset of ~500K records, using 6 original features.
+Initial MVP result with training dataset of ~500K records, using 6 original features identified as differentiating.
 Average validation F1-score was 0.065.
-
-**Models:** 
-
-1. XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
-
 ```
 #### Data and Model Iteration
 ```
@@ -55,7 +51,7 @@ This may signal a change in the data-generating process that requires developmen
 The model evaluation process is illustrated below.
 ![image](https://user-images.githubusercontent.com/102324956/16829782 - 4-2a035a69-2919-475c-be12-d657dbff14cd.png)
 
-2. Deep Feed-Forward Neural Network
+2. Model: Deep Feed-Forward Neural Network
 
 ```
 #### Data and Model Iteration
