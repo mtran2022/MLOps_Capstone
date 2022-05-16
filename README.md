@@ -47,7 +47,7 @@ This may signal a change in the data-generating process that requires developmen
 | 400K             | 200K         | 0.0867                      | 0.0922        |
 | 493K             | 243K         | 0.0851                      | 0.0904        |
 
-The model evaluation process is illustrated below.
+The model evaluation process is illustrated below. <br>
 <img src="https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png" width="600">
 <br>
 
