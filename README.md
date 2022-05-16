@@ -52,8 +52,6 @@ The model evaluation process is illustrated below.
 ![image](https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png)
 
 #### 2. Model: Deep Feed-Forward Neural Network
-
-```
 #### Data and Model Iteration
 ```
 Data iterations included feature engineering 
