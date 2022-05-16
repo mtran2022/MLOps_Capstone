@@ -75,8 +75,9 @@ Using 6 randomly selected sets of hyperparameters. Each each set was trained on 
 | Epoch 08/10 |   0.7488    |  0.7280   |  0.439  | 0.625 | 0.038 |
 | Epoch 09/10 |   0.7494    |  0.7278   |  0.439  | 0.625 | 0.038 |
 | Epoch 10/10 |   0.7487    |  0.7275   |  0.439  | 0.625 | 0.038 |
-
+```
 #### Model Retraining
+```
 Retraining the model with additional data generally improved the Average Validation F1-score.
 Comparison between the Average Validation F1-score and Test F1-score shows the model generalizes well to unseen data.
 
@@ -86,5 +87,4 @@ Test  loss: 0.480. Acc: 79.50%. AUC: 0.728. F1: 0.071
 Confusion matrix, without normalisation
          [122286  30655]
         [  1184   1209]
-
-
+```
