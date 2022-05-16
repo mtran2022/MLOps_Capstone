@@ -1,16 +1,20 @@
-Project Cr
-
 ![image](https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png)
+
+Project Cr
 
 This application is designed to predict whether a credit card transaction is fraudulent.
 
 Dataset: CapOne https://github.com/CapitalOneRecruiting/DS <br>
-Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
 
 #### Initial MVP
 ```
 Initial MVP result with initial training dataset of ~500K records, using 6 original features.
 Average validation F1-score was 0.065.
+
+**Models:** 
+
+1. XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
+
 ```
 #### Data and Model Iteration
 ```
@@ -49,4 +53,65 @@ This may signal a change in the data-generating process that requires developmen
 
 ```
 The model evaluation process is illustrated below.
-![image](https://user-images.githubusercontent.com/102324956/168297824-2a035a69-2919-475c-be12-d657dbff14cd.png)
+![image](https://user-images.githubusercontent.com/102324956/16829782 - 4-2a035a69-2919-475c-be12-d657dbff14cd.png)
+
+2. Deep Feed-Forward Neural Network
+
+```
+#### Data and Model Iteration
+```
+Data iterations included feature engineering 
+The dataset is normalized before passing it to the model, transformed into a PyTorch dataframe and subsequently a data loader is created to yield batches of it in a random fashion. Initial training with 9 features and 100K records was used to search for optimal hyperparameters.
+
+Using 6 randomly selected sets of hyperparameters. Each each set was trained on a number of units:
+- conv_input_size: (38,), input_size: 38, D: 38, output_size: 1
+- num_units [38, 50, 50, 10, 25, 25]
+Net(
+  (layers): ModuleList(
+    (0): Linear(in_features=38, out_features=50, bias=False)
+    (1): Tanh()
+    (2): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (3): Dropout(p=0.3, inplace=False)
+    (4): Linear(in_features=50, out_features=50, bias=False)
+    (5): Tanh()
+    (6): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): Dropout(p=0.3, inplace=False)
+    (8): Linear(in_features=50, out_features=10, bias=False)
+    (9): Tanh()
+    (10): BatchNorm1d(10, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): Dropout(p=0.3, inplace=False)
+    (12): Linear(in_features=10, out_features=25, bias=False)
+    (13): Tanh()
+    (14): BatchNorm1d(25, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (15): Dropout(p=0.3, inplace=False)
+    (16): Linear(in_features=25, out_features=25, bias=False)
+    (17): Tanh()
+    (18): BatchNorm1d(25, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (19): Dropout(p=0.3, inplace=False)
+    (20): Linear(in_features=25, out_features=1, bias=True)
+  )
+)
+
+Epoch 01/10, Train Loss: 0.7490, Test Loss: 0.7228, Acc: 0.332, AUC: 0.620, F1: 0.036
+Epoch 02/10, Train Loss: 0.7490, Test Loss: 0.7216, Acc: 0.426, AUC: 0.624, F1: 0.038
+Epoch 03/10, Train Loss: 0.7490, Test Loss: 0.7254, Acc: 0.437, AUC: 0.625, F1: 0.038
+Epoch 04/10, Train Loss: 0.7487, Test Loss: 0.7273, Acc: 0.439, AUC: 0.625, F1: 0.038
+Epoch 05/10, Train Loss: 0.7488, Test Loss: 0.7279, Acc: 0.438, AUC: 0.625, F1: 0.038
+Epoch 06/10, Train Loss: 0.7488, Test Loss: 0.7279, Acc: 0.439, AUC: 0.625, F1: 0.038
+Epoch 07/10, Train Loss: 0.7484, Test Loss: 0.7278, Acc: 0.439, AUC: 0.625, F1: 0.038
+Epoch 08/10, Train Loss: 0.7488, Test Loss: 0.7280, Acc: 0.439, AUC: 0.625, F1: 0.038
+Epoch 09/10, Train Loss: 0.7494, Test Loss: 0.7278, Acc: 0.439, AUC: 0.625, F1: 0.038
+Epoch 10/10, Train Loss: 0.7487, Test Loss: 0.7275, Acc: 0.439, AUC: 0.625, F1: 0.038
+
+#### Model Retraining
+Retraining the model with additional data generally improved the Average Validation F1-score.
+Comparison between the Average Validation F1-score and Test F1-score shows the model generalizes well to unseen data.
+
+Train loss: 0.552. Acc: 72.28%. AUC: 0.723. F1: 0.467
+Test  loss: 0.480. Acc: 79.50%. AUC: 0.728. F1: 0.071
+
+Confusion matrix, without normalisation
+         [122286  30655]
+        [  1184   1209]
+
+
