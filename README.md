@@ -92,16 +92,18 @@ Net(
   )
 )
 
-Epoch 01/10, Train Loss: 0.7490, Test Loss: 0.7228, Acc: 0.332, AUC: 0.620, F1: 0.036
-Epoch 02/10, Train Loss: 0.7490, Test Loss: 0.7216, Acc: 0.426, AUC: 0.624, F1: 0.038
-Epoch 03/10, Train Loss: 0.7490, Test Loss: 0.7254, Acc: 0.437, AUC: 0.625, F1: 0.038
-Epoch 04/10, Train Loss: 0.7487, Test Loss: 0.7273, Acc: 0.439, AUC: 0.625, F1: 0.038
-Epoch 05/10, Train Loss: 0.7488, Test Loss: 0.7279, Acc: 0.438, AUC: 0.625, F1: 0.038
-Epoch 06/10, Train Loss: 0.7488, Test Loss: 0.7279, Acc: 0.439, AUC: 0.625, F1: 0.038
-Epoch 07/10, Train Loss: 0.7484, Test Loss: 0.7278, Acc: 0.439, AUC: 0.625, F1: 0.038
-Epoch 08/10, Train Loss: 0.7488, Test Loss: 0.7280, Acc: 0.439, AUC: 0.625, F1: 0.038
-Epoch 09/10, Train Loss: 0.7494, Test Loss: 0.7278, Acc: 0.439, AUC: 0.625, F1: 0.038
-Epoch 10/10, Train Loss: 0.7487, Test Loss: 0.7275, Acc: 0.439, AUC: 0.625, F1: 0.038
+|    Epoch    | Train Loss  | Test Loss |   Acc   |   AUC |   F1  |
+| ----------- | ----------- | --------- |  ------ | ----- | ----- |
+| Epoch 01/10 |   0.7490    |  0.7228   |  0.332  | 0.620 | 0.036 |
+| Epoch 02/10 |   0.7490    |  0.7216   |  0.426  | 0.624 | 0.038 |
+| Epoch 03/10 |   0.7490    |  0.7254   |  0.437  | 0.625 | 0.038 |
+| Epoch 04/10 |   0.7487    |  0.7273   |  0.439  | 0.625 | 0.038 |
+| Epoch 05/10 |   0.7488    |  0.7279   |  0.438  | 0.625 | 0.038 |
+| Epoch 06/10 |   0.7488    |  0.7279   |  0.439  | 0.625 | 0.038 |
+| Epoch 07/10 |   0.7484    |  0.7278   |  0.439  | 0.625 | 0.038 |
+| Epoch 08/10 |   0.7488    |  0.7280   |  0.439  | 0.625 | 0.038 |
+| Epoch 09/10 |   0.7494    |  0.7278   |  0.439  | 0.625 | 0.038 |
+| Epoch 10/10 |   0.7487    |  0.7275   |  0.439  | 0.625 | 0.038 |
 
 #### Model Retraining
 Retraining the model with additional data generally improved the Average Validation F1-score.
