@@ -38,7 +38,7 @@ Comparison between the Average Validation F1-score and Test F1-score shows the m
 
 Model performance begins to decline with 400K training records.
 This may signal a change in the data-generating process that requires development of a new model.
-
+```
 | Training Records | Test Records | Average Validation F1-score | Test F1-score |
 | ---------------- | ------------ | --------------------------- | ------------- |
 | 100K             | 50K          | 0.0833                      | 0.1025        |
@@ -47,7 +47,6 @@ This may signal a change in the data-generating process that requires developmen
 | 400K             | 200K         | 0.0867                      | 0.0922        |
 | 493K             | 243K         | 0.0851                      | 0.0904        |
 
-```
 The model evaluation process is illustrated below.
 ![image](https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png)
 
@@ -60,7 +59,7 @@ The dataset is normalized before passing it to the model, transformed into a PyT
 Using 6 randomly selected sets of hyperparameters. Each each set was trained on a number of units:
 - conv_input_size: (38,), input_size: 38, D: 38, output_size: 1
 - num_units [38, 50, 50, 10, 25, 25]
-
+```
 |    Epoch    | Train Loss  | Test Loss |   Acc   |   AUC |   F1  |
 | ----------- | ----------- | --------- |  ------ | ----- | ----- |
 | Epoch 01/10 |   0.7490    |  0.7228   |  0.332  | 0.620 | 0.036 |
@@ -73,7 +72,7 @@ Using 6 randomly selected sets of hyperparameters. Each each set was trained on 
 | Epoch 08/10 |   0.7488    |  0.7280   |  0.439  | 0.625 | 0.038 |
 | Epoch 09/10 |   0.7494    |  0.7278   |  0.439  | 0.625 | 0.038 |
 | Epoch 10/10 |   0.7487    |  0.7275   |  0.439  | 0.625 | 0.038 |
-```
+
 #### Model Retraining
 ```
 Retraining the model with additional data generally improved the Average Validation F1-score.
