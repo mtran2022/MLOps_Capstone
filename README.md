@@ -6,7 +6,7 @@ This application is designed to predict whether a credit card transaction is fra
 
 Dataset: CapOne https://github.com/CapitalOneRecruiting/DS <br>
 
-1. Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
+#### 1. Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
 #### Initial MVP
 ```
 Initial MVP result with training dataset of ~500K records, using 6 original features identified as differentiating.
@@ -49,10 +49,9 @@ This may signal a change in the data-generating process that requires developmen
 
 ```
 The model evaluation process is illustrated below.
-![image](https://user-images.githubusercontent.com/102324956/16829782 - 4-2a035a69-2919-475c-be12-d657dbff14cd.png)
+![image](https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png)
 
-
-2. Model: Deep Feed-Forward Neural Network
+#### 2. Model: Deep Feed-Forward Neural Network
 
 ```
 #### Data and Model Iteration
