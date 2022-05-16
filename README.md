@@ -1,6 +1,6 @@
 ## Project Multi-Mod Credit Fraud Detection
 <br>
-<img src="https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png" width="300">
+<img src="https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png" width="600">
 
 This application is designed to predict whether a credit card transaction is fraudulent.
 
@@ -48,7 +48,7 @@ This may signal a change in the data-generating process that requires developmen
 | 493K             | 243K         | 0.0851                      | 0.0904        |
 
 The model evaluation process is illustrated below.
-![image](https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png)
+<img src="https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png" width="600">
 
 #### 2. Model: Deep Feed-Forward Neural Network
 #### Data and Model Iteration
