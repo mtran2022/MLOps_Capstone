@@ -66,31 +66,6 @@ The dataset is normalized before passing it to the model, transformed into a PyT
 Using 6 randomly selected sets of hyperparameters. Each each set was trained on a number of units:
 - conv_input_size: (38,), input_size: 38, D: 38, output_size: 1
 - num_units [38, 50, 50, 10, 25, 25]
-Net(
-  (layers): ModuleList(
-    (0): Linear(in_features=38, out_features=50, bias=False)
-    (1): Tanh()
-    (2): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (3): Dropout(p=0.3, inplace=False)
-    (4): Linear(in_features=50, out_features=50, bias=False)
-    (5): Tanh()
-    (6): BatchNorm1d(50, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (7): Dropout(p=0.3, inplace=False)
-    (8): Linear(in_features=50, out_features=10, bias=False)
-    (9): Tanh()
-    (10): BatchNorm1d(10, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (11): Dropout(p=0.3, inplace=False)
-    (12): Linear(in_features=10, out_features=25, bias=False)
-    (13): Tanh()
-    (14): BatchNorm1d(25, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (15): Dropout(p=0.3, inplace=False)
-    (16): Linear(in_features=25, out_features=25, bias=False)
-    (17): Tanh()
-    (18): BatchNorm1d(25, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-    (19): Dropout(p=0.3, inplace=False)
-    (20): Linear(in_features=25, out_features=1, bias=True)
-  )
-)
 
 |    Epoch    | Train Loss  | Test Loss |   Acc   |   AUC |   F1  |
 | ----------- | ----------- | --------- |  ------ | ----- | ----- |
