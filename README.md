@@ -1,4 +1,4 @@
-## Project Multi-Mod Credit Fraud Detection
+## Project Fraud Vision
 <br>
 <img src="https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png" width="600">
 
