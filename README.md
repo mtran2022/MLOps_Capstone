@@ -89,4 +89,4 @@ Confusion matrix, without normalisation
 
 #### High Level Roadmap for next 5 weeks
 Develop the remaining 2 models.
-Build the pipeline with Google Vertex AI.
+Build the ML pipeline with Google Vertex AI.
