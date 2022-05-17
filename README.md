@@ -86,3 +86,7 @@ Confusion matrix, without normalisation
          [122286  30655]
         [  1184   1209]
 ```
+
+#### High Level Roadmap for next 5 weeks
+Develop the remaining 2 models.
+Build the pipeline with Google Vertex AI.
