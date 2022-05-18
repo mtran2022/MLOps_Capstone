@@ -46,7 +46,7 @@ Model performance is stable with retraining on additional data.
 | 400K             | 200K         | 0.1161                      | 0.1183        |
 | 493K             | 243K         | 0.1186                      | 0.1164        |
 
-Ranking of features most use in the classification task. <br>
+Ranking of features most useful in the classification task. <br>
 <img src="https://user-images.githubusercontent.com/102324956/169159169-e304933d-baf9-47c9-b3c3-bca41c8a897e.png" width="600">
 <br>
 
