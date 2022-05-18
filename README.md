@@ -36,6 +36,7 @@ Average validation F1-score was 0.1117.
 Retraining the model with additional data generally improved the Average Validation F1-score.
 Comparison between the Average Validation F1-score and Test F1-score shows the model generalizes well to unseen data.
 
+Model performance is stable with retraining on additional data.
 ```
 | Training Records | Test Records | Average Validation F1-score | Test F1-score |
 | ---------------- | ------------ | --------------------------- | ------------- |
