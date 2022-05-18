@@ -46,7 +46,7 @@ Comparison between the Average Validation F1-score and Test F1-score shows the m
 | 493K             | 243K         | 0.1186                      | 0.1164        |
 
 Ranking of features most use in the classification task. <br>
-<img src="https://user-images.githubusercontent.com/102324956/169158595-0ed2f140-4340-4bfd-909e-028cd9f88efc.png" width="600">
+<img src="https://user-images.githubusercontent.com/102324956/169159169-e304933d-baf9-47c9-b3c3-bca41c8a897e.png" width="600">
 <br>
 
 The model evaluation process is illustrated below. <br>
