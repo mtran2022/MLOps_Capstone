@@ -71,7 +71,17 @@ async def predict(request: Transaction):
   model_input = process_input(request)
   result = predict_fraud(model_input)
   return {'IsFraud': int(result)}
-  
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    return PlainTextResponse(str(exc), status_code=400)
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request, exc):
+    return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
+
+
+
 def process_input(input):
   logger.info("process input data")
  
@@ -131,14 +141,6 @@ def process_input(input):
 def predict_fraud(model_input_df):
   logger.info("make fraud prediction")
   return XGB_Classifier.predict(model_input_df)
-
-@app.exception_handler(RequestValidationError)
-async def validation_exception_handler(request, exc):
-    return PlainTextResponse(str(exc), status_code=400)
-
-@app.exception_handler(HTTPException)
-async def http_exception_handler(request, exc):
-    return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
 
 
 # command to run uvicorn
