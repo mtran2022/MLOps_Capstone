@@ -109,7 +109,7 @@ def process_input(input):
   else:
     merchantName_clean = merchantName_clean.strip().lower()
 
-  is_top_merchant= merchantName_clean in top100_retailers_2015_ls
+  is_top_merchant= int(merchantName_clean in top100_retailers_2015_ls)
   # print('merchantName_clean:',merchantName_clean)
   # print('is_top_merchant:',is_top_merchant)
 
