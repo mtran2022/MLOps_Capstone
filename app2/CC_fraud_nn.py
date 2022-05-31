@@ -125,12 +125,12 @@ def process_input(input):
       if isinstance(layer, InputLayer):
           columns.append(layer.name)
 
-  print('columns:',columns)
+  # print('columns:',columns)
   input_df = pd.DataFrame([[expirationDateKeyInMatch,merchantCountryCode,merchantCategoryCode
                             ,posEntryMode,posConditionCode,cardPresent,merchantName_clean
                             ,is_top_merchant,transactionAmount,transamt_to_avail
                             ]] ,columns=columns)
-  print('input_df:',input_df)
+  # print('input_df:',input_df)
   
   #convert categorical variables to category codes
   for col in cat_var_trans_dict.keys():
@@ -144,12 +144,12 @@ def process_input(input):
       print('cont var:',col)
       input_df[col] = scaler.transform(input_df[col].values.reshape(-1,1))
   
-  print('input_df after transform:\n',input_df)
+  # print('input_df after transform:\n',input_df)
   
   input_tensor=[]
   for col in columns:
     input_tensor.append(input_df[col].values)
-  print('input_tensor:',input_tensor)
+  # print('input_tensor:',input_tensor)
   return input_tensor
 
 def predict_fraud(model_input):
