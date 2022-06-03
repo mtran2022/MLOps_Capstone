@@ -92,6 +92,8 @@ async def predict(request: Transaction):
     response={'Model1': {'IsFraud': int(result_nn)}}
   elif request.modelNum==2:
     response={'Model0': {'IsFraud': int(result_xgb)} ,'Model1': {'IsFraud': int(result_nn)}}
+  else:
+    response={'Error:','modelNum value invalid'}
 
   return response
 
@@ -250,7 +252,7 @@ def f1(y_true, y_pred): #taken from old keras source code
 
 # command to provide input - IsFraud=1
 # curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 5000 ,"availableMoney":1463.88 ,"transactionDateTime":"2016-03-14 14:14:27" ,"transactionAmount":489.11 ,"merchantName":"Fresh eCards" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"02" ,"posConditionCode":"01" ,"merchantCategoryCode":"online_gifts" ,"currentExpDate":"2032-11-30" ,"accountOpenDate":"2014-06-21" ,"dateOfLastAddressChange":"2016-03-11" ,"cardCVV":"869" ,"enteredCVV":"869" ,"cardLast4Digits":"593" ,"transactionType":"PURCHASE" ,"currentBalance":3536.12 ,"cardPresent":0 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
-# curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 2500.0 ,"availableMoney":171.46 ,"transactionDateTime":"2016-02-12 00:38:11" ,"transactionAmount":238.66 ,"merchantName":"Lyft" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"09" ,"posConditionCode":"01" ,"merchantCategoryCode":"rideshare" ,"currentExpDate":"2026-05-31" ,"accountOpenDate":"2013-02-07" ,"dateOfLastAddressChange":"2013-02-07" ,"cardCVV":"153" ,"enteredCVV":"153" ,"cardLast4Digits":"2737" ,"transactionType":"PURCHASE" ,"currentBalance":2328.54 ,"cardPresent":0 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
+# curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 20000 ,"availableMoney":18896.00 ,"transactionDateTime":"2016-03-11 21:10:59" ,"transactionAmount":593.63 ,"merchantName":"amazon.com" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"09" ,"posConditionCode":"01" ,"merchantCategoryCode":"online_retail" ,"currentExpDate":"2027-05-31" ,"accountOpenDate":"2013-01-18" ,"dateOfLastAddressChange":"2013-01-18" ,"cardCVV":"511" ,"enteredCVV":"511" ,"cardLast4Digits":"2" ,"transactionType":"PURCHASE" ,"currentBalance":1104 ,"cardPresent":0 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
 
 # command to provide input - IsFraud=0
 # curl -X POST -H "Content-Type: application/json" -d '{"creditLimit": 15000 ,"availableMoney":12560.82 ,"transactionDateTime":"2016-01-05 17:51:35" ,"transactionAmount":238.69 ,"merchantName":"American Airlines" ,"acqCountry":"US" ,"merchantCountryCode":"US" ,"posEntryMode":"09" ,"posConditionCode":"01" ,"merchantCategoryCode":"airline" ,"currentExpDate":"2022-08-31" ,"accountOpenDate":"2015-07-06" ,"dateOfLastAddressChange":"2015-07-06" ,"cardCVV":"325" ,"enteredCVV":"325" ,"cardLast4Digits":"9787" ,"transactionType":"PURCHASE" ,"currentBalance":2439.18 ,"cardPresent":1 ,"expirationDateKeyInMatch":0}' http://localhost:8080/predict
