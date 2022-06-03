@@ -221,7 +221,7 @@ def process_input_nn(input):
   #scale continuous variables
   for col in columns: 
     if col not in cat_var_trans_dict.keys():
-      print('cont var:',col)
+      # print('cont var:',col)
       input_df[col] = scaler.transform(input_df[col].values.reshape(-1,1))
   
   # print('input_df after transform:\n',input_df)
