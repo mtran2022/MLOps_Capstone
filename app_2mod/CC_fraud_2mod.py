@@ -19,7 +19,7 @@ from fastapi.responses import PlainTextResponse
 
 import logging
 from logging.config import dictConfig
-from app.log_config import log_config # this is your local file
+from app_2mod.log_config import log_config # this is your local file
 
 dictConfig(log_config)
 logger = logging.getLogger("my_logger")
