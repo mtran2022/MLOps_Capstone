@@ -75,7 +75,7 @@ async def root():
   logger.info("at root")
   return {'message': 'Hello. This the credit card transaction fraud prediction service'}
 
-
+# prediction function takes in Transaction object
 @app.post("/predict")
 async def predict(request: Transaction):
   logger.info("send prediction")
@@ -97,16 +97,18 @@ async def predict(request: Transaction):
 
   return response
 
+# exception handling for HTTP 400 errors
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request, exc):
     return PlainTextResponse(str(exc), status_code=400)
 
+# exception handling for all remaining HTTP errors
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
     return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
 
 
-
+# XGB Model
 def process_input_xgb(input):
   logger.info("process input data")
  
