@@ -7,7 +7,6 @@ from keras.models import load_model
 from keras.layers import InputLayer
 from keras import backend as K
 
-from sklearn.preprocessing import StandardScaler
 import joblib
 
 from fastapi import FastAPI, HTTPException, status, Request, Form
@@ -75,7 +74,13 @@ async def root():
   logger.info("at root")
   return {'message': 'Hello. This the credit card transaction fraud prediction service'}
 
-# prediction function takes in Transaction object
+"""
+Prediction function takes in Transaction object,
+calls functions to process the data according to model requirements,
+calls functions to make model predictions,
+checks for valid modelInt from request,
+returns prediction or error message
+"""
 @app.post("/predict")
 async def predict(request: Transaction):
   logger.info("send prediction")
