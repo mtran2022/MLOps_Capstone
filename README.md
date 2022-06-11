@@ -54,42 +54,4 @@ The model evaluation process is illustrated below. <br>
 <img src="https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png" width="600">
 <br>
 
-#### 2. Model: Deep Feed-Forward Neural Network
-#### Data and Model Iteration
-```
-Data iterations included feature engineering 
-The dataset is normalized before passing it to the model, transformed into a PyTorch dataframe and subsequently a data loader is created to yield batches of it in a random fashion. Initial training with 9 features and 100K records was used to search for optimal hyperparameters.
 
-Using 6 randomly selected sets of hyperparameters. Each each set was trained on a number of units:
-- conv_input_size: (38,), input_size: 38, D: 38, output_size: 1
-- num_units [38, 50, 50, 10, 25, 25]
-```
-|    Epoch    | Train Loss  | Test Loss |   Acc   |   AUC |   F1  |
-| ----------- | ----------- | --------- |  ------ | ----- | ----- |
-| Epoch 01/10 |   0.7490    |  0.7228   |  0.332  | 0.620 | 0.036 |
-| Epoch 02/10 |   0.7490    |  0.7216   |  0.426  | 0.624 | 0.038 |
-| Epoch 03/10 |   0.7490    |  0.7254   |  0.437  | 0.625 | 0.038 |
-| Epoch 04/10 |   0.7487    |  0.7273   |  0.439  | 0.625 | 0.038 |
-| Epoch 05/10 |   0.7488    |  0.7279   |  0.438  | 0.625 | 0.038 |
-| Epoch 06/10 |   0.7488    |  0.7279   |  0.439  | 0.625 | 0.038 |
-| Epoch 07/10 |   0.7484    |  0.7278   |  0.439  | 0.625 | 0.038 |
-| Epoch 08/10 |   0.7488    |  0.7280   |  0.439  | 0.625 | 0.038 |
-| Epoch 09/10 |   0.7494    |  0.7278   |  0.439  | 0.625 | 0.038 |
-| Epoch 10/10 |   0.7487    |  0.7275   |  0.439  | 0.625 | 0.038 |
-
-#### Model Retraining
-```
-Retraining the model with additional data generally improved the Average Validation F1-score.
-Comparison between the Average Validation F1-score and Test F1-score shows the model generalizes well to unseen data.
-
-Train loss: 0.552. Acc: 72.28%. AUC: 0.723. F1: 0.467
-Test  loss: 0.480. Acc: 79.50%. AUC: 0.728. F1: 0.071
-
-Confusion matrix, without normalisation
-         [122286  30655]
-        [  1184   1209]
-```
-
-#### High Level Roadmap for next 5 weeks
-Develop the remaining 2 models.
-Build the ML pipeline with Google Vertex AI.
