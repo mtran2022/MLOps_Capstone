@@ -44,15 +44,17 @@ git clone https://github.com/mtran2022/MLOps_Capstone.git
 
 #### Build the image and run
 ```
-virtualenv sentiment
-source sentiment/bin/activate
+virtualenv cc_fraud
+source cc_fraud/bin/activate
 cd MLOps_Capstone
-docker build -t cc_fraud .
-docker run -p 127.0.0.1:8080:8080 cc_fraud
+docker build -t cc_fraud_serv .
+docker run -p 127.0.0.1:8080:8080 cc_fraud_serv
 ```
 #### Use the application
 ```
-Run demo.py to see examples of sending credit card transaction requests to endpoint and receiving fraud prediction.
+Prediction endpoint is on localhost at http://127.0.0.1:8080/predict
+Send credit card transaction requests to endpoint and receive fraud prediction.
+Use demo.py as reference.
 ```
 
 
