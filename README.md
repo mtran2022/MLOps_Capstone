@@ -4,6 +4,60 @@
 
 This application is designed to predict whether fraudulent credit card transactions using an ensemble of models.
 
+Running the Application
+#### Install packages in WSL2 Ubuntu Root
+```
+sudo apt update
+sudo apt install python3-pip python3-dev
+sudo pip3 install --upgrade pip
+sudo pip3 install virtualenv 
+```
+#### Install Docker
+```
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+#### Add Docker user and start service
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+sudo service docker start
+docker run hello-world
+```
+#### Install git and clone this repo
+```
+sudo apt install git
+git clone https://github.com/mtran2022/MLOps_Capstone.git
+```
+
+#### Build the image and run
+```
+virtualenv sentiment
+source sentiment/bin/activate
+cd MLOps_Capstone
+docker build -t cc_fraud .
+docker run -p 127.0.0.1:8080:8080 cc_fraud
+```
+#### Use the application
+```
+Run demo.py to see examples of sending credit card transaction requests to endpoint and receiving fraud prediction.
+```
+
+
+
+Data and Model
 Dataset: CapOne https://github.com/CapitalOneRecruiting/DS <br>
 
 #### 1. Model: XGBoost Classifier https://xgboost.readthedocs.io/en/stable/python/python_intro.html
@@ -53,5 +107,8 @@ Ranking of features most useful in the classification task. <br>
 The model evaluation process is illustrated below. <br>
 <img src="https://user-images.githubusercontent.com/102324956/168513347-71356567-9abd-4caf-a4de-016ebb8cdf07.png" width="600">
 <br>
+
+#### 2. Model: Neural Network https://keras.io/
+
 
 
