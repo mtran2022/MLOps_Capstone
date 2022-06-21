@@ -2,7 +2,7 @@
 <br>
 <img src="https://user-images.githubusercontent.com/102324956/168498886-b904b791-c0b0-4a54-bcfa-ea4160e7019a.png" width="600">
 
-This application is designed to predict whether fraudulent credit card transactions. <br>
+This application is designed to predict fraudulent credit card transactions with the benefit of choice. <br>
 A use case for this solution would be: use a single model for lower-dollar transactions, and the ensemble of models for higher-dollar transactions. <br>
 The cost of operating this solution would be commensurate with the transaction dollar-at-risk.
 
